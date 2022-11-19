@@ -4,11 +4,13 @@ from NotebookSpecs import NotebookSpecs
 
 
 class InternetShop:
-    host: str
-    url: str
-    notebooks: List[NotebookSpecs]
     driver: webdriver
-    prices: List[List[int]] = [[0, 30000], [30000, 50000], [50000, 70000], [70000, 100000]]
+    prices_list: List[List[int]] = [[0, 30000], [30000, 50000], [50000, 70000], [70000, 100000]]
+
+    def __init__(self):
+        host: str
+        url: str
+        notebooks: List[NotebookSpecs]
 
     def selenium_start(self):
         self.driver = webdriver.Chrome()
@@ -25,7 +27,6 @@ class InternetShop:
 
     def __init__(self):
         pass
-
 
     def selenium_quit(self):
         self.driver.quit()

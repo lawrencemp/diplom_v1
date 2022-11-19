@@ -29,11 +29,17 @@ class NotebookSpecs:
                 self.rom = data_strings[5][1:].lower() + ' ' + data_strings[6][1:].lower()
         if shop == 'Citilink':
             data_strings = data_string.split(',')
-            data_strings[2] = data_strings[2].replace(" ", "-")
-            self.cpu = data_strings[3][1:].lower()
-            self.ram = data_strings[4][1:].lower()
-            self.rom = data_strings[5][1:].lower()
-            self.gpu = data_strings[6][1:-1].lower()
+            if data_strings[2] not in ['  AMOLED', '  IPS', '  LTPS', '  OLED', '  TN']:
+                number = 2
+            else:
+                number = 3
+            self.cpu = data_strings[number][1:].lower()
+            self.ram = data_strings[number+1][1:].lower()
+            self.rom = data_strings[number+2][1:].lower()
+            self.gpu = data_strings[number+3][1:-1].lower()
+
+    def __str__(self):
+        return f'Notebook with cpu {self.cpu}, gpu {self.gpu} and link is {self.link}'
 
 
 

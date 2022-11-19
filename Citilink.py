@@ -13,8 +13,9 @@ class Citilink(InternetShop):
     def __init__(self, i):
         self.host = 'https://www.citilink.ru'
         self.url = 'https://www.citilink.ru/catalog/noutbuki/?view_type=grid&f=discount.any%2Crating.any'
-        self.prices: List[int] = super.prices[i]
+        self.prices: List[int] = super().prices_list[i]
         self.driver = webdriver.Chrome()
+        self.notebooks: List[NotebookSpecs] = []
 
     def find_last_page(self):
         last_page = self.driver.find_element(By.XPATH,
@@ -30,7 +31,7 @@ class Citilink(InternetShop):
                                          class_="ProductCardVerticalLayout__wrapper-description ProductCardVertical__layout-description")
                 for item in items:
                     data = item.find('a', class_="ProductCardVertical__name Link js--Link Link_type_default")
-                    self.notebooks.append(NotebookSpecs(data_string=data.get('title').replace("\"", ""),
+                    self.notebooks.append(NotebookSpecs(data_string=data.get('title').replace("\'", ""),
                                                         shop='Citilink',
                                                         link=self.host + data.get('href')))
                     i += 1
