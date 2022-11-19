@@ -25,3 +25,7 @@ class InternetShop:
 
     def __init__(self):
         pass
+
+
+    def selenium_quit(self):
+        self.driver.quit()
