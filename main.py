@@ -1,5 +1,5 @@
-import Internet_shop
-from Citilink import Citilink
+from Models import Internet_shop
+from Models.Citilink import Citilink
 
 
 class JobWithShop:

@@ -1,12 +1,9 @@
-from Internet_shop import InternetShop
+from Models.Internet_shop import InternetShop
 from typing import List
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
-from NotebookSpecs import NotebookSpecs
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from Models.NotebookSpecs import NotebookSpecs
 
 
 class Citilink(InternetShop):
