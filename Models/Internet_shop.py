@@ -1,6 +1,6 @@
 from typing import List
 from selenium import webdriver
-from NotebookSpecs import NotebookSpecs
+from Models.NotebookSpecs import NotebookSpecs
 
 
 class InternetShop:
