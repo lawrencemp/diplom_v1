@@ -3,7 +3,7 @@ from sqlalchemy import  Column, Integer, String, ForeignKey
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
 
-sqlite_database: str = "sqlite:///notebook_bench_data.db"
+sqlite_database: str = "sqlite:///find_laptop.db"
 engine = create_engine(sqlite_database)
 Session = sessionmaker(autoflush=False, bind=engine)
 
@@ -38,6 +38,7 @@ class GpuBenchData(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     gpu_name = Column(String)
     bench_score = Column(Integer)
+
 
 
 
