@@ -1,10 +1,10 @@
-from Models import Internet_shop
-from Models.Citilink import Citilink
+from LaptopUtilities.Internet_shop import InternetShop
+from LaptopUtilities.Citilink import Citilink
 
 
 class JobWithShop:
     def __init__(self):
-        self._shop: Internet_shop = Citilink(0)
+        self._shop: InternetShop = Citilink(1)
 
     def parse_shop(self):
         self._shop.selenium_start()

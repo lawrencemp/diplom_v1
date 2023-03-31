@@ -1,19 +1,14 @@
 
 
 class NotebookSpecs:
-    cpu: str
-    gpu: str
-    ram: str
-    rom: str
-    link: str
-    shop: str
-    cpu_score: int = None
-    gpu_score: int = None
-    score: int = None
-
     def __init__(self, data_string: str, shop: str, link: str):
         self.link = link
         self.shop = shop
+        self.cpu_score: int = None
+        self.gpu_score: int = None
+        self.ram_score: int = None
+        self.rom_score: int = None
+        self.score: int = None
         if shop == 'DNS':
             data_string = data_string.replace("/", "")
             data_string = data_string.replace("<span>", "")

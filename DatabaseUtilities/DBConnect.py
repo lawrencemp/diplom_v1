@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy import  Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
 
@@ -38,8 +38,6 @@ class GpuBenchData(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     gpu_name = Column(String)
     bench_score = Column(Integer)
-
-
 
 
 

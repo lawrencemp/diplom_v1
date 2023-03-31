@@ -1,16 +1,17 @@
-from Models.Internet_shop import InternetShop
+from LaptopUtilities.Internet_shop import InternetShop
 from typing import List
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
-from Models.NotebookSpecs import NotebookSpecs
+from LaptopUtilities.NotebookSpecs import NotebookSpecs
 
 
 class Citilink(InternetShop):
     def __init__(self, i):
         self.host = 'https://www.citilink.ru'
         self.url = 'https://www.citilink.ru/catalog/noutbuki/?view_type=grid&f=discount.any%2Crating.any'
-        self.prices: List[int] = super().prices_list[i]
+        self.prices: List[int] = super().prices_list[i-1]
+        self.price_segment = i
         self.driver = webdriver.Chrome()
         self.notebooks: List[NotebookSpecs] = []
 
@@ -38,5 +39,11 @@ class Citilink(InternetShop):
             except Exception:
                 print("exception Citilink")
                 break
+
+    def make_url_with_prices(self):
+        self.url = self.url + "&price_max=" + self.prices[1] + \
+                   "&pprice_max=" + self.prices[1] + "&price_min=" + self.prices[0]
+
+
 
 
