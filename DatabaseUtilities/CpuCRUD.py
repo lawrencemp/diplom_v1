@@ -2,7 +2,7 @@ from DatabaseUtilities.DBConnect import Session
 from DatabaseUtilities.DBConnect import CpuBenchData
 
 
-class CpuCRUD:
+class CpuCrud:
     @staticmethod
     def add_cpu(cpu: CpuBenchData):
         with Session() as db:

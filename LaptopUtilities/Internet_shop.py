@@ -13,7 +13,7 @@ class InternetShop:
         notebooks: List[NotebookSpecs]
 
     def selenium_start(self):
-        self.driver = webdriver.Chrome('C:\\Users\\home_pc_2\\PycharmProjects\diplom_v1\\venv\Scripts\\chromedriver.exe')
+        self.driver = webdriver.Chrome()
         self.driver.get(self.url)
 
     def parse_notebook_list(self, max_pages):

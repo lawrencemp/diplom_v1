@@ -2,7 +2,7 @@ from DatabaseUtilities.DBConnect import Session
 from DatabaseUtilities.DBConnect import GpuBenchData
 
 
-class GpuCRUD:
+class GpuCrud:
     @staticmethod
     def add_gpu(gpu: GpuBenchData):
         with Session() as db:

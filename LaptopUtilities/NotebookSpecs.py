@@ -1,4 +1,4 @@
-
+from re import sub
 
 class NotebookSpecs:
     def __init__(self, data_string: str, shop: str, link: str):
@@ -24,14 +24,17 @@ class NotebookSpecs:
                 self.rom = data_strings[5][1:].lower() + ' ' + data_strings[6][1:].lower()
         if shop == 'Citilink':
             data_strings = data_string.split(',')
-            if data_strings[2] not in ['  AMOLED', '  IPS', '  LTPS', '  OLED', '  TN']:
+            if data_strings[2] not in [' AMOLED', ' IPS', ' LTPS', ' OLED', ' TN']:
                 number = 2
             else:
                 number = 3
             self.cpu = data_strings[number][1:].lower()
-            self.ram = data_strings[number+1][1:].lower()
-            self.rom = data_strings[number+2][1:].lower()
-            self.gpu = data_strings[number+3][1:-1].lower()
+            self.cpu = self.cpu.replace(" ", "-")
+            self.ram = data_strings[number+2][1:].lower()
+            self.rom = data_strings[number+3][1:].lower()
+            self.gpu = data_strings[len(data_strings)-2].lower()
+            self.gpu = self.gpu.replace(" для ноутбуков", "")
+            self.gpu = sub(r" - [0-9]? гб", "", self.gpu)
 
     def __str__(self):
         return f'Notebook with cpu {self.cpu}, gpu {self.gpu} and link is {self.link}'

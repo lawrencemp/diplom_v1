@@ -4,7 +4,7 @@ from typing import List
 from LaptopUtilities.NotebookSpecs import NotebookSpecs
 
 
-class TopLaptopCRUD:
+class TopLaptopCrud:
     @staticmethod
     def write_new_top(laptops: List[TopLaptop]):
         with Session() as db:
