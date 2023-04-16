@@ -16,6 +16,7 @@ class TopLaptop(Base):
     __tablename__ = "top_laptop"
     id = Column(Integer, primary_key=True, index=True)
     price_segment_id = Column(Integer, ForeignKey("price_segments.id"))
+    score = Column(Integer)
     link = Column(String)
 
 

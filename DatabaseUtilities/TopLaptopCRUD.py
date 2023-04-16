@@ -22,6 +22,7 @@ class TopLaptopCrud:
         with Session() as db:
             old_top = db.query(TopLaptop).filter(TopLaptop.price_segment_id == price_segment).first()
             old_top.link = best_laptop.link
+            old_top.score = best_laptop.score
             db.commit()
 
     @staticmethod

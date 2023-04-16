@@ -9,11 +9,11 @@ from DatabaseUtilities.TopLaptopCRUD import TopLaptopCrud
 
 def job_parse_every_day():
     print("start working")
-    #segments = PriceSegmentCrud.get_price_segments()
-    segments = [4]
+    segments = PriceSegmentCrud.get_price_segments()
+    #segments = [4]
     for segment in segments:
         start = time.time()
-        citilink_parser = Citilink(segment)
+        citilink_parser = Citilink(segment.id)
         citilink_parser.make_url_with_prices()
         citilink_parser.selenium_start()
         max_pages = citilink_parser.find_last_page()
@@ -37,7 +37,7 @@ def job_parse_every_day():
                 jsonFile.write(gpu_without_score_.to_json())
                 jsonFile.write("\n")
         end = time.time()
-        print("Time of execution 1 segment is " + str(end-start) + " sec." )
+        print("Time of execution" + str(segment.id) + " segment is " + str(end-start) + " sec." )
 
 
 
