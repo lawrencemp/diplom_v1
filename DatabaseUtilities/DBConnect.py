@@ -2,8 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import sessionmaker
+from DatabaseUtilities.db_connect_string import db_connection
 
-sqlite_database: str = "sqlite:///DatabaseUtilities/find_laptop.db"
+sqlite_database: str = db_connection
 engine = create_engine(sqlite_database)
 Session = sessionmaker(autoflush=False, bind=engine)
 
